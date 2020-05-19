@@ -52,7 +52,10 @@ function PricingSection(props) {
       <Typography variant="h3" align="center" className="lg-mg-bottom">
         Pricing
       </Typography>
-      <div className={classNames("container-fluid", classes.containerFix)}>
+      <div
+        className={classNames("container-fluid", classes.containerFix)}
+        style={{ alignItems: "center" }}
+      >
         <Grid
           container
           spacing={calculateSpacing(width)}
@@ -61,8 +64,8 @@ function PricingSection(props) {
           <Grid
             item
             xs={12}
-            sm={6}
-            lg={3}
+            sm={4}
+            lg={4}
             className={classes.cardWrapper}
             data-aos="zoom-in-up"
           >
@@ -81,8 +84,8 @@ function PricingSection(props) {
             item
             className={classes.cardWrapperHighlighted}
             xs={12}
-            sm={6}
-            lg={3}
+            sm={4}
+            lg={4}
             data-aos="zoom-in-up"
             data-aos-delay="200"
           >
@@ -102,8 +105,8 @@ function PricingSection(props) {
             item
             className={classes.cardWrapper}
             xs={12}
-            sm={6}
-            lg={3}
+            sm={4}
+            lg={4}
             data-aos="zoom-in-up"
             data-aos-delay={isWidthUp("md", width) ? "400" : "0"}
           >
@@ -127,7 +130,7 @@ function PricingSection(props) {
             data-aos="zoom-in-up"
             data-aos-delay={isWidthUp("md", width) ? "600" : "200"}
           >
-            <PriceCard
+            {/*<PriceCard
               title="Tycoon"
               pricing={
                 <span>
@@ -136,7 +139,7 @@ function PricingSection(props) {
                 </span>
               }
               features={["Feature 1", "Feature 2", "Feature 3"]}
-            />
+            />*/}
           </Grid>
         </Grid>
       </div>
