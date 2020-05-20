@@ -112,7 +112,7 @@ function HeadSection(props) {
             >
               <div className={classNames(classes.containerFix, "container")}>
                 <Box justifyContent="space-between" className="row">
-                  <Grid item xs={12} md={5}>
+                  <Grid item xs={12} md={12}>
                     <Box
                       display="flex"
                       flexDirection="column"
@@ -121,7 +121,7 @@ function HeadSection(props) {
                     >
                       <Box mb={4}>
                         <Typography
-                          variant={isWidthUp("lg", width) ? "h3" : "h4"}
+                          variant={isWidthUp("lg", width) ? "h4" : "h4"}
                         >
                           Free Template for building an SaaS app using
                           Material-UI
