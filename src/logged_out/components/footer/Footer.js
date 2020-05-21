@@ -153,6 +153,25 @@ const socialIcons = [
   }
 ];
 
+const submitForm = (ev) => {
+  ev.preventDefault();
+  const form = ev.target;
+  const data = new FormData(form);
+  const xhr = new XMLHttpRequest();
+  xhr.open(form.method, form.action);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    if (xhr.status === 200) {
+      form.reset();
+      alert("Sent email");
+    } else {
+      alert("Error sending email");
+    }
+  };
+  xhr.send(data);
+};
+
 function Footer(props) {
   const { classes, theme, width } = props;
   return (
@@ -165,7 +184,11 @@ function Footer(props) {
       <div className={classes.footerInner}>
         <Grid container spacing={isWidthUp("md", width) ? 10 : 5}>
           <Grid item xs={12} md={6} lg={4}>
-            <form>
+            <form
+              action="https://formspree.io/mlepgozy"
+              method="POST"
+              onSubmit={submitForm}
+            >
               <Box display="flex" flexDirection="column">
                 <Box mb={1}>
                   <TextField
@@ -174,11 +197,12 @@ function Footer(props) {
                     placeholder="Get in touch with us"
                     inputProps={{ "aria-label": "Get in Touch" }}
                     InputProps={{
-                      className: classes.whiteBg
+                      className: classes.whiteBg,
                     }}
                     rows={4}
                     fullWidth
                     required
+                    name="message"
                   />
                 </Box>
                 <ColoredButton

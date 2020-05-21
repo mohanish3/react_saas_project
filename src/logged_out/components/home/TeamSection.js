@@ -1,56 +1,59 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import image1 from "../../../logged_in/dummy_data/images.bak/image1.jpg";
+import image2 from "../../../logged_in/dummy_data/images.bak/image2.jpg";
+import image3 from "../../../logged_in/dummy_data/images.bak/image3.jpg";
 import {
   Grid,
   Typography,
   isWidthUp,
   withWidth,
-  withStyles
+  withStyles,
 } from "@material-ui/core";
-import PriceCard from "./PriceCard";
 import calculateSpacing from "./calculateSpacing";
+import TeamCard from "./TeamCard";
 
-const styles = theme => ({
+const styles = (theme) => ({
   containerFix: {
     [theme.breakpoints.down("md")]: {
       paddingLeft: theme.spacing(6),
-      paddingRight: theme.spacing(6)
+      paddingRight: theme.spacing(6),
     },
     [theme.breakpoints.down("sm")]: {
       paddingLeft: theme.spacing(4),
-      paddingRight: theme.spacing(4)
+      paddingRight: theme.spacing(4),
     },
     [theme.breakpoints.down("xs")]: {
       paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2)
+      paddingRight: theme.spacing(2),
     },
     overflow: "hidden",
     paddingTop: theme.spacing(1),
-    paddingBottom: theme.spacing(1)
+    paddingBottom: theme.spacing(1),
   },
   cardWrapper: {
     [theme.breakpoints.down("xs")]: {
       marginLeft: "auto",
       marginRight: "auto",
-      maxWidth: 340
-    }
+      maxWidth: 340,
+    },
   },
   cardWrapperHighlighted: {
     [theme.breakpoints.down("xs")]: {
       marginLeft: "auto",
       marginRight: "auto",
-      maxWidth: 360
-    }
-  }
+      maxWidth: 360,
+    },
+  },
 });
 
-function PricingSection(props) {
+function TeamSection(props) {
   const { width, classes } = props;
   return (
     <div className="lg-p-top" style={{ backgroundColor: "#FFFFFF" }}>
       <Typography variant="h3" align="center" className="lg-mg-bottom">
-        Pricing
+        Team
       </Typography>
       <div
         className={classNames("container-fluid", classes.containerFix)}
@@ -69,15 +72,11 @@ function PricingSection(props) {
             className={classes.cardWrapper}
             data-aos="zoom-in-up"
           >
-            <PriceCard
-              title="Starter"
-              pricing={
-                <span>
-                  ₹14.99
-                  <Typography display="inline"> / month</Typography>
-                </span>
-              }
-              features={["Feature 1", "Feature 2", "Feature 3"]}
+            <TeamCard
+              title="Jim Jimson"
+              src={image1}
+              designation="CEO"
+              email="jim@waver.com"
             />
           </Grid>
           <Grid
@@ -89,16 +88,11 @@ function PricingSection(props) {
             data-aos="zoom-in-up"
             data-aos-delay="200"
           >
-            <PriceCard
-              highlighted
-              title="Premium"
-              pricing={
-                <span>
-                  ₹29.99
-                  <Typography display="inline"> / month</Typography>
-                </span>
-              }
-              features={["Feature 1", "Feature 2", "Feature 3"]}
+            <TeamCard
+              title="John Johnson"
+              src={image2}
+              designation="CTO"
+              email="john@waver.com"
             />
           </Grid>
           <Grid
@@ -110,15 +104,11 @@ function PricingSection(props) {
             data-aos="zoom-in-up"
             data-aos-delay={isWidthUp("md", width) ? "400" : "0"}
           >
-            <PriceCard
-              title="Business"
-              pricing={
-                <span>
-                  ₹49.99
-                  <Typography display="inline"> / month</Typography>
-                </span>
-              }
-              features={["Feature 1", "Feature 2", "Feature 3"]}
+            <TeamCard
+              title="Jack Jackson"
+              src={image3}
+              designation="CFO"
+              email="jack@waver.com"
             />
           </Grid>
           <Grid
@@ -147,10 +137,10 @@ function PricingSection(props) {
   );
 }
 
-PricingSection.propTypes = {
-  width: PropTypes.string.isRequired
+TeamSection.propTypes = {
+  width: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(
-  withWidth()(PricingSection)
+  withWidth()(TeamSection)
 );
